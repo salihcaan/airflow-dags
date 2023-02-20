@@ -36,6 +36,7 @@ start_task = DummyOperator(task_id='start_task', dag=hello_world_dag)
 
 # Creating second task
 hello_world_task = PythonOperator(task_id='example_task_1', python_callable=print_hello, dag=hello_world_dag)
+another_task = PythonOperator(task_id='another_task', python_callable=print_hello, dag=hello_world_dag)
 
 # Creating third task
 end_task = DummyOperator(task_id='end_task', dag=hello_world_dag)
