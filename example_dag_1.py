@@ -1,4 +1,4 @@
-#datetime
+# datetime
 from datetime import timedelta, datetime
 
 # The DAG object
@@ -25,9 +25,11 @@ hello_world_dag = DAG('example_dag_1',
                       tags=['example, data-platform']
                       )
 
+
 # python callable function
 def print_hello():
     return 'Hello World!'
+
 
 # Creating first task
 start_task = DummyOperator(task_id='start_task', dag=hello_world_dag)
@@ -39,4 +41,4 @@ hello_world_task = PythonOperator(task_id='example_task_1', python_callable=prin
 end_task = DummyOperator(task_id='end_task', dag=hello_world_dag)
 
 # Set the order of execution of tasks.
-start_task >> hello_world_task >> end_task
+# start_task >> hello_world_task >> end_task
